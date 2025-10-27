@@ -1,0 +1,87 @@
+
+{
+  "name": "resellers",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "title": "Reseller",
+        "description": "Reseller account management with authentication and business details",
+        "additionalProperties": true,
+        "required": ["reseller_id", "email", "business_name", "status", "access_link", "created_at"],
+        "properties": {
+          "reseller_id": {
+            "bsonType": "string",
+            "description": "Unique reseller identifier"
+          },
+          "email": {
+            "bsonType": "string",
+            "description": "Reseller email address"
+          },
+          "password_hash": {
+            "bsonType": "string",
+            "description": "Encrypted password"
+          },
+          "business_name": {
+            "bsonType": "string",
+            "description": "Business or company name"
+          },
+          "contact_name": {
+            "bsonType": "string",
+            "description": "Primary contact person name"
+          },
+          "phone": {
+            "bsonType": "string",
+            "description": "Contact phone number"
+          },
+          "whatsapp_number": {
+            "bsonType": "string",
+            "description": "WhatsApp business number"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["active", "inactive", "pending", "suspended"],
+            "description": "Reseller account status"
+          },
+          "access_link": {
+            "bsonType": "string",
+            "description": "Unique access link for reseller dashboard"
+          },
+          "commission_rate": {
+            "bsonType": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Commission percentage"
+          },
+          "total_sales": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Total sales amount"
+          },
+          "total_orders": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Total number of orders"
+          },
+          "last_login": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Last login timestamp"
+          },
+          "created_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Account creation timestamp"
+          },
+          "updated_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Last update timestamp"
+          }
+        }
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

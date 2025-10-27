@@ -1,0 +1,76 @@
+
+{
+  "name": "orders",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "title": "Order",
+        "description": "Customer orders for analytics tracking",
+        "additionalProperties": true,
+        "required": ["order_id", "reseller_id", "catalog_id", "customer_info", "total_amount", "status", "created_at"],
+        "properties": {
+          "order_id": {
+            "bsonType": "string",
+            "description": "Unique order identifier"
+          },
+          "reseller_id": {
+            "bsonType": "string",
+            "description": "Associated reseller ID"
+          },
+          "catalog_id": {
+            "bsonType": "string",
+            "description": "Source catalog ID"
+          },
+          "customer_info": {
+            "bsonType": "object",
+            "description": "Customer contact information"
+          },
+          "items": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "object"
+            },
+            "description": "Ordered products with quantities"
+          },
+          "total_amount": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Total order value"
+          },
+          "commission_amount": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Commission earned"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["pending", "confirmed", "shipped", "delivered", "cancelled"],
+            "description": "Order status"
+          },
+          "payment_status": {
+            "bsonType": "string",
+            "enum": ["pending", "paid", "refunded"],
+            "description": "Payment status"
+          },
+          "whatsapp_conversation": {
+            "bsonType": "string",
+            "description": "WhatsApp conversation link"
+          },
+          "created_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Order creation timestamp"
+          },
+          "updated_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Last update timestamp"
+          }
+        }
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
