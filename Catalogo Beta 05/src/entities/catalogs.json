@@ -1,0 +1,84 @@
+
+{
+  "name": "catalogs",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "title": "Catalog",
+        "description": "Digital product catalogs for WhatsApp sales",
+        "additionalProperties": true,
+        "required": ["catalog_id", "reseller_id", "name", "status", "created_at"],
+        "properties": {
+          "catalog_id": {
+            "bsonType": "string",
+            "description": "Unique catalog identifier"
+          },
+          "reseller_id": {
+            "bsonType": "string",
+            "description": "Associated reseller ID"
+          },
+          "name": {
+            "bsonType": "string",
+            "description": "Catalog name"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Catalog description"
+          },
+          "template_id": {
+            "bsonType": "string",
+            "description": "Template used for catalog"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["draft", "published", "archived"],
+            "description": "Catalog publication status"
+          },
+          "cover_image": {
+            "bsonType": "string",
+            "description": "Catalog cover image URL"
+          },
+          "brand_colors": {
+            "bsonType": "object",
+            "description": "Brand color scheme"
+          },
+          "whatsapp_message": {
+            "bsonType": "string",
+            "description": "Default WhatsApp message template"
+          },
+          "share_link": {
+            "bsonType": "string",
+            "description": "Public sharing link"
+          },
+          "qr_code": {
+            "bsonType": "string",
+            "description": "QR code for easy sharing"
+          },
+          "view_count": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Number of catalog views"
+          },
+          "share_count": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Number of shares"
+          },
+          "created_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Catalog creation timestamp"
+          },
+          "updated_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Last update timestamp"
+          }
+        }
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

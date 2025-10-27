@@ -1,0 +1,91 @@
+
+{
+  "name": "products",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "title": "Product",
+        "description": "Products within reseller catalogs",
+        "additionalProperties": true,
+        "required": ["product_id", "catalog_id", "name", "price", "status", "created_at"],
+        "properties": {
+          "product_id": {
+            "bsonType": "string",
+            "description": "Unique product identifier"
+          },
+          "catalog_id": {
+            "bsonType": "string",
+            "description": "Associated catalog ID"
+          },
+          "name": {
+            "bsonType": "string",
+            "description": "Product name"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Product description"
+          },
+          "price": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Product price"
+          },
+          "original_price": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Original price before discount"
+          },
+          "currency": {
+            "bsonType": "string",
+            "description": "Price currency"
+          },
+          "category": {
+            "bsonType": "string",
+            "description": "Product category"
+          },
+          "tags": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "Product tags"
+          },
+          "images": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "Product image URLs"
+          },
+          "stock_quantity": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Available stock"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["active", "inactive", "out_of_stock"],
+            "description": "Product availability status"
+          },
+          "sort_order": {
+            "bsonType": "int",
+            "description": "Display order in catalog"
+          },
+          "created_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Product creation timestamp"
+          },
+          "updated_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Last update timestamp"
+          }
+        }
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
