@@ -1,0 +1,71 @@
+
+{
+  "name": "templates",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "title": "Template",
+        "description": "Catalog design templates",
+        "additionalProperties": true,
+        "required": ["template_id", "name", "category", "is_active", "created_at"],
+        "properties": {
+          "template_id": {
+            "bsonType": "string",
+            "description": "Unique template identifier"
+          },
+          "name": {
+            "bsonType": "string",
+            "description": "Template name"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Template description"
+          },
+          "category": {
+            "bsonType": "string",
+            "enum": ["fashion", "electronics", "food", "beauty", "general"],
+            "description": "Template category"
+          },
+          "preview_image": {
+            "bsonType": "string",
+            "description": "Template preview image"
+          },
+          "layout_config": {
+            "bsonType": "object",
+            "description": "Layout configuration settings"
+          },
+          "color_scheme": {
+            "bsonType": "object",
+            "description": "Default color scheme"
+          },
+          "is_premium": {
+            "bsonType": "bool",
+            "description": "Premium template flag"
+          },
+          "is_active": {
+            "bsonType": "bool",
+            "description": "Template availability"
+          },
+          "usage_count": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Number of times used"
+          },
+          "created_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Template creation timestamp"
+          },
+          "updated_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Last update timestamp"
+          }
+        }
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

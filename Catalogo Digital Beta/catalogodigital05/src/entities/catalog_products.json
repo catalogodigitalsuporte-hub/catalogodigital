@@ -1,0 +1,104 @@
+
+{
+  "name": "catalog_products",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "title": "CatalogProduct",
+        "description": "Produtos dentro dos catálogos dos revendedores",
+        "additionalProperties": true,
+        "required": ["product_id", "catalog_id", "reseller_id", "name", "price", "created_at"],
+        "properties": {
+          "product_id": {
+            "bsonType": "string",
+            "description": "Identificador único do produto"
+          },
+          "catalog_id": {
+            "bsonType": "string",
+            "description": "ID do catálogo ao qual pertence"
+          },
+          "reseller_id": {
+            "bsonType": "string",
+            "description": "ID do revendedor proprietário"
+          },
+          "name": {
+            "bsonType": "string",
+            "description": "Nome do produto"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Descrição do produto"
+          },
+          "price": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Preço do produto"
+          },
+          "original_price": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Preço original (antes do desconto)"
+          },
+          "images": {
+            "bsonType": "array",
+            "description": "URLs das imagens do produto",
+            "items": {
+              "bsonType": "string"
+            }
+          },
+          "category": {
+            "bsonType": "string",
+            "description": "Categoria do produto"
+          },
+          "tags": {
+            "bsonType": "array",
+            "description": "Tags do produto",
+            "items": {
+              "bsonType": "string"
+            }
+          },
+          "in_stock": {
+            "bsonType": "bool",
+            "description": "Disponibilidade em estoque"
+          },
+          "quantity": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Quantidade em estoque"
+          },
+          "sku": {
+            "bsonType": "string",
+            "description": "Código do produto"
+          },
+          "weight": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Peso do produto em gramas"
+          },
+          "dimensions": {
+            "bsonType": "object",
+            "description": "Dimensões do produto",
+            "properties": {
+              "length": {"bsonType": "number"},
+              "width": {"bsonType": "number"},
+              "height": {"bsonType": "number"}
+            }
+          },
+          "created_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação do produto"
+          },
+          "updated_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data da última atualização"
+          }
+        }
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

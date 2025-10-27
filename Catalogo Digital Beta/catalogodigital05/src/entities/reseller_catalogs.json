@@ -1,0 +1,77 @@
+
+{
+  "name": "reseller_catalogs",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "title": "ResellerCatalog",
+        "description": "Catálogos digitais criados por revendedores",
+        "additionalProperties": true,
+        "required": ["catalog_id", "reseller_id", "name", "status", "created_at"],
+        "properties": {
+          "catalog_id": {
+            "bsonType": "string",
+            "description": "Identificador único do catálogo"
+          },
+          "reseller_id": {
+            "bsonType": "string",
+            "description": "ID do revendedor proprietário"
+          },
+          "name": {
+            "bsonType": "string",
+            "description": "Nome do catálogo"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Descrição do catálogo"
+          },
+          "category": {
+            "bsonType": "string",
+            "enum": ["moda", "acessorios", "casa", "beleza", "eletronicos", "outros"],
+            "description": "Categoria do catálogo"
+          },
+          "whatsapp": {
+            "bsonType": "string",
+            "description": "Número do WhatsApp para contato"
+          },
+          "message_template": {
+            "bsonType": "string",
+            "description": "Mensagem padrão para envio"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["active", "inactive", "draft"],
+            "description": "Status do catálogo"
+          },
+          "cover_image": {
+            "bsonType": "string",
+            "description": "URL da imagem de capa"
+          },
+          "view_count": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Número de visualizações"
+          },
+          "share_count": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Número de compartilhamentos"
+          },
+          "created_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação do catálogo"
+          },
+          "updated_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data da última atualização"
+          }
+        }
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
